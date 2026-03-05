@@ -13,11 +13,10 @@ const Login = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('http://localhost:5000/login', { username, password });
-            
+            const response = await axios.post('https://login-app-h2zr.onrender.com/login', { username, password });
             if (response.status === 200) {
                 localStorage.setItem('username', username);
-                history.push('/welcome'); 
+                history.push('/welcome');
             }
         } catch (err) {
             if (err.response && err.response.data) {
